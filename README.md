@@ -18,8 +18,8 @@ In Medical Image Analysis, 2014.
 Please cite our papers if you use our code for your research.  
 
 This package consists of the following two multiple-instance learning (MIL) methods:
-* MIL-Boost [Viola et al. 2006] (set c = 1)
-* MCIL-Boost [1] [2] (set c &gt; 1)
+* MIL-Boost [Viola et al. 2006]: set c = 1
+* MCIL-Boost [1] [2]: set c >= 1
 
 The core of this package is a command line interface written in C++. Various MATLAB helper functions are provided to help users easily train/test MCIL-Boost model, perform cross-validation, and evaluate the performance.
 
@@ -140,29 +140,28 @@ The software outputs four kinds of predictions (see more details in the paper):
   - overall instance-level prediction p_{ij} (the probability of the instance x_{ij} being positive instance)
   - cluster-wise instance-level prediction p_{ij}^k (the probability of the instance x_{ij} belonging to the k-th cluster)
   - In the first line, the software outputs the number of bags, and the number of clusters. Then for each bag, the software outputs the bag-level information and prediction (bag id, number of instances, ground truth label, number of clusters, and p_i).The software also outputs the bag-level prediction for each cluster (cluster id and prediction p_i^k for each cluster). Then for each instance, the software outputs the instance-level prediction (instance id and prediction p_{ij}) and instance-level prediction for each cluster (cluster_id and prediction p_{ij}^k)
-
 * Format:  
-#bag=&lt;number of bags&gt; #cluster=&lt;number of clusters&gt;  
-bag_id=&lt;bag Id 0&gt; #insts=&lt;number of instances in bag0&gt; label=&lt;ground truth label&gt; #cluster=&lt;number of clusters&gt; pred=&lt;bag-level prediction&gt;  
+&#35;bag=&lt;number of bags&gt; &#35;cluster=&lt;number of clusters&gt;  
+bag_id=&lt;bag Id 0&gt; &#35;insts=&lt;number of instances in bag0&gt; label=&lt;ground truth label&gt; &#35;cluster=&lt;number of clusters&gt; pred=&lt;bag-level prediction&gt;  
 cluster_id=&lt;cluster Id 0&gt;  pred=&lt;bag-level prediction of cluster 0&gt; cluster_id=&lt;cluster Id 1&gt; pred=&lt;bag-level prediction of cluster 1&gt; ...  
 inst_id=&lt;instance id 0&gt; pred=&lt;Instance-level prediction 0&gt; cluster_id=&lt;cluster Id 0&gt;  pred=&lt;instance-level prediction of cluster 0&gt; cluster_id=&lt;cluster Id 1&gt;   pred=&lt;instance-level prediction  of cluster 1 ...  
 inst_id=&lt;instance id 1&gt; pred=&lt;Instance-level prediction 1&gt; cluster_id=&lt;cluster Id 0&gt;  pred=&lt;instance-level prediction of cluster 0&gt; cluster_id=&lt;cluster Id 1&gt;   pred=&lt;instance-level prediction of cluster 1&gt; ...  
 ...
 * Example: The output of the toy example:  
-#bags=4 #clusters=2  
-bag_id=0 #insts=2 label=0 #clusters=2 pred=0  
-cluster_id=0 pred=0 cluster_id=1 pred=0  
-inst_id=0 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
-inst_id=1 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
-bag_id=1 #insts=2 label=0 #clusters=2 pred=0  
-cluster_id=0 pred=0 cluster_id=1 pred=0  
-inst_id=0 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
-inst_id=1 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
-bag_id=2 #insts=2 label=1 #clusters=2 pred=1  
-cluster_id=0 pred=1 cluster_id=1 pred=0  
-inst_id=0 pred=1 cluster_id=0 pred=1 cluster_id=1 pred=0  
-inst_id=1 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
-bag_id=3 #insts=2 label=1 #clusters=2 pred=1  
-cluster_id=0 pred=0 cluster_id=1 pred=1  
-inst_id=0 pred=1 cluster_id=0 pred=0 cluster_id=1 pred=1  
-inst_id=1 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
+  &#35;bags=4 &#35;clusters=2  
+  bag_id=0 #insts=2 label=0 #clusters=2 pred=0  
+  cluster_id=0 pred=0 cluster_id=1 pred=0  
+  inst_id=0 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
+  inst_id=1 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
+  bag_id=1 #insts=2 label=0 #clusters=2 pred=0  
+  cluster_id=0 pred=0 cluster_id=1 pred=0  
+  inst_id=0 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
+  inst_id=1 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
+  bag_id=2 #insts=2 label=1 #clusters=2 pred=1  
+  cluster_id=0 pred=1 cluster_id=1 pred=0  
+  inst_id=0 pred=1 cluster_id=0 pred=1 cluster_id=1 pred=0  
+  inst_id=1 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
+  bag_id=3 #insts=2 label=1 #clusters=2 pred=1  
+  cluster_id=0 pred=0 cluster_id=1 pred=1  
+  inst_id=0 pred=1 cluster_id=0 pred=0 cluster_id=1 pred=1  
+  inst_id=1 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
