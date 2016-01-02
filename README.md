@@ -22,8 +22,6 @@ This package consists of the following two multiple-instance learning (MIL) meth
 The core of this package is a command line interface written in C++. Various Matlab helper functions are provided to help users easily train/test MCIL-Boost model, perform cross-validation, and evaluate the performance.
 
 
-## Acknowledgements
-Part of this code is based on the work by Piotr Dollar and Boris Babenko.
 
 
 ## System Requirement
@@ -163,3 +161,6 @@ inst_id=&lt;instance id 1&gt; pred=&lt;Instance-level prediction 1&gt; cluster_i
   cluster_id=0 pred=0 cluster_id=1 pred=1  
   inst_id=0 pred=1 cluster_id=0 pred=0 cluster_id=1 pred=1  
   inst_id=1 pred=0 cluster_id=0 pred=0 cluster_id=1 pred=0  
+
+  ## Credit
+  Part of this code is based on the work by Piotr Dollar and Boris Babenko.
