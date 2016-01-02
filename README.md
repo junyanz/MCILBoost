@@ -1,7 +1,5 @@
 # MCILBoost
-## Information
-Project webpage: http://www.eecs.berkeley.edu/~junyanz/projects/MCIL/
-
+Project webpage: http://www.eecs.berkeley.edu/~junyanz/projects/MCIL/  
 Contact: Jun-Yan Zhu (junyanz at eecs dot berkeley dot edu)
 
 
