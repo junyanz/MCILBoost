@@ -19,9 +19,9 @@ Please cite our papers if you use our code for your research.
 
 This package consists of the following two multiple-instance learning (MIL) methods:
 * MIL-Boost [Viola et al. 2006]: set c = 1
-* MCIL-Boost [1] [2]: set c >= 1
+* MCIL-Boost [1] [2]: set c &gt; 1
 
-The core of this package is a command line interface written in C++. Various MATLAB helper functions are provided to help users easily train/test MCIL-Boost model, perform cross-validation, and evaluate the performance.
+The core of this package is a command line interface written in C++. Various Matlab helper functions are provided to help users easily train/test MCIL-Boost model, perform cross-validation, and evaluate the performance.
 
 
 ## Acknowledgements
@@ -35,10 +35,10 @@ Part of this code is based on the work by Piotr Dollar and Boris Babenko.
 
 ## Installation
 * Download and unzip the code.
-* For Linux users, type "chmod +x MCILBoost";
+  - For Linux users, type "chmod +x MCILBoost".
 * Open Matlab and run "demoToy.m".
-* To use command line interface, see "Command Usage";
-* To use Matlab functions, see "MATLAB helper functions"; You can modify "SetParamsToy.m" and "demoToy.m" to run your own experiments.
+* To use command line interface, see "Command Usage".
+* To use Matlab functions, see "Matlab helper functions"; You can modify "SetParamsToy.m" and "demoToy.m" to run your own experiments.
 
 
 ## Quick Examples
@@ -80,7 +80,7 @@ model_file: set the path for model file.
 result_file: set the path for result file. If result_file is not specified, result_file = data_file + '.result'
 
 
-## MATLAB helper functions
+## Matlab helper functions
 * **MCILBoost.m**: main entry function: model training/testing, and cross-validation.
 * **SetParams.m**: Set parameters for MCILBoost.m. You need to modify this file to run your own experiment.
 * **TrainModel.m**: train a model, call MCIL-Boost command line.
@@ -101,12 +101,12 @@ result_file: set the path for result file. If result_file is not specified, resu
 
 ## Summary of Benchmark Results
 * I provide two scripts for running experiments on publicly available MIL benchmarks.
-- "demo1.m": experiments on Fox, Tiger, Elephant dataset.  
-The MIL-Boost achieved 0.61 (Fox), 0.81 (Tiger), 0.82 (Elephant) on 10-fold cross-validation over 10 runs.
-- "demo2.m": experiments on SIVAL dataset.
+  - "demo1.m": experiments on Fox, Tiger, Elephant dataset.  
+The MIL-Boost achieved **0.61** (Fox), **0.81** (Tiger), **0.82** (Elephant) on 10-fold cross-validation over 10 runs.
+  - "demo2.m": experiments on SIVAL dataset.
 There are 180 positive bags (3 clusters), and 180 negative bags. While multiple clusters appear in positive bags, MCIL-Boost works better than MIL-Boost does.  
-MIL-Boost  (c=1):  mean_acc = 0.742, mean_auc = 0.824  
-MCIL-Boost (c=3):  mean_acc = 0.879, mean_auc = 0.944  
+MIL-Boost  (c=1):  mean_acc = **0.742**, mean_auc = **0.824**  
+MCIL-Boost (c=3):  mean_acc = **0.879**, mean_auc = **0.944**  
 * Note: See "demo1.m" and "demo2.m" for details.
 
 
@@ -114,7 +114,7 @@ MCIL-Boost (c=3):  mean_acc = 0.879, mean_auc = 0.944
 * Note: You can use Matlab function "ReadData.m" and "WriteData.m" to read/write Matlab data from/to the text file.
 * Description: the input format is similar to the format used in LIBSVM and MILL package. The software also supports sparse format.
 In the first line, you first need to specify the number of all instances, and the number of feature dimensions.
-Each line represents one instance, which has an instance id, bag id, and the label id (&gt;= 1 for positive bags, and 0 for negative bags). Each feature value is represented as a &lt;index&gt;:&lt;value&gt; pair where &lt;index&gt; is the index of the feature (i.e., starting from 1)
+Each line represents one instance, which has an instance id, bag id, and the label id (&gt;= 1 for positive bags, and 0 for negative bags). Each feature value is represented as a &lt;index&gt;:&lt;value&gt; pair where &lt;index&gt; is the index of the feature (starting from 1)
 * Format:
 &lt;the total number of instances&gt; &lt;number of feature dimensions&gt;  
 &lt;instanceId0&gt;:&lt;bagId0&gt;:&lt;label0&gt; &lt;index&gt;:&lt;value&gt; &lt;index&gt;:&lt;value&gt; ...  
@@ -132,7 +132,7 @@ Each line represents one instance, which has an instance id, bag id, and the lab
 
 
 ## Output Format
-* Note: You can use MATLAB function "ReadResult.m" to load the MATLAB data from the result file.
+* Note: You can use Matlab function "ReadResult.m" to load the Matlab data from the result file.
 * Description:
 The software outputs four kinds of predictions (see more details in the paper):
   - overall bag-level prediction p_i (the probability of the bag x_i being positive bag)
