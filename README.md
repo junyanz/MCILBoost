@@ -40,13 +40,15 @@ The core of this package is a command line interface written in C++. Various Mat
 ## Quick Examples
 (Windows: MCILBoost.exe; Linux: ./MCILBoost)  
 An example for training:  
-MCILBoost.exe -v 2 -t 0 -c 2 -n 150 -s 0 toy.data toy.model  
+MCILBoost.exe -v 2 -t 0 -c 2 -n 150 -s 0 -r 20 toy.data toy.model  
 An example for testing:  
-MCILBoost.exe -v 2 -t 1 -c 2 -n 150 -s 0 toy.data toy.model toy.result  
+MCILBoost.exe -v 2 -t 1 -c 2 toy.data toy.model toy.result 
+
 
 
 ## Command Usage ([ ]: options)
 MCILBoost.exe [-v verbose] [-t mode] [-c #clusters] [-n #weakClfs] [-s softmax] data_file model_file [result_file]
+(No need to specifiy c, n, s, r for test as the program will copy these parameters from the model_file)
 
 -v verbose: shows details about the runtime output (default = 1)
 	0 -- no output
