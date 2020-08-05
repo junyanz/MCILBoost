@@ -1,16 +1,16 @@
 # MCILBoost
-Project webpage: http://www.eecs.berkeley.edu/~junyanz/projects/MCIL/  
-Contact: Jun-Yan Zhu (junyanz at eecs dot berkeley dot edu)
+[Project](https://www.cs.cmu.edu/~junyanz/projects/MCIL/) | [CVPR Paper](https://www.cs.cmu.edu/~junyanz/projects/MCIL/cvpr12_mcil.pdf) | [MIA Paper](https://www.cs.cmu.edu/~junyanz/projects/MCIL/mia14_mcil.pdf)<br>
+Contact: [Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/) (junyanz at cs dot cmu dot edu)
 
 
 ## Overview
 This is the authors' implementation of MCIL-Boost method described in:  
 [1] Multiple Clustered Instance Learning for Histopathology Cancer Image Segmentation, Clustering, and Classification.  
-Yan Xu*, Jun-Yan Zhu*, Eric Chang and Zhuowen Tu (\*equal contribution)  
+Yan Xu\*, Jun-Yan Zhu\*, Eric Chang, and Zhuowen Tu (\*equal contribution)  
 In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2012.
 
 [2] Weakly Supervised Histopathology Cancer Image Segmentation and Classification  
-Yan Xu, Jun-Yan Zhu, Eric I-Chao Chang, Maode Lai and Zhuowen Tu  
+Yan Xu, Jun-Yan Zhu, Eric I-Chao Chang, Maode Lai, and Zhuowen Tu  
 In Medical Image Analysis, 2014.
 
 Please cite our papers if you use our code for your research.  
@@ -19,7 +19,7 @@ This package consists of the following two multiple-instance learning (MIL) meth
 * MIL-Boost [Viola et al. 2006]: set c = 1
 * MCIL-Boost [1] [2]: set c &gt; 1
 
-The core of this package is a command line interface written in C++. Various Matlab helper functions are provided to help users easily train/test MCIL-Boost model, perform cross-validation, and evaluate the performance.
+The core of this package is a command-line interface written in C++. Various Matlab helper functions are provided to help users easily train/test MCIL-Boost model, perform cross-validation, and evaluate the performance.
 
 
 
@@ -33,7 +33,7 @@ The core of this package is a command line interface written in C++. Various Mat
 * Download and unzip the code.
   - For Linux users, type "chmod +x MCILBoost".
 * Open Matlab and run "demoToy.m".
-* To use command line interface, see "Command Usage".
+* To use the command-line interface, see "Command Usage".
 * To use Matlab functions, see "Matlab helper functions"; You can modify "SetParamsToy.m" and "demoToy.m" to run your own experiments.
 
 
@@ -42,7 +42,7 @@ The core of this package is a command line interface written in C++. Various Mat
 An example for training:  
 MCILBoost.exe -v 2 -t 0 -c 2 -n 150 -s 0 -r 20 toy.data toy.model  
 An example for testing:  
-MCILBoost.exe -v 2 -t 1 -c 2 toy.data toy.model toy.result 
+MCILBoost.exe -v 2 -t 1 -c 2 toy.data toy.model toy.result
 
 
 
@@ -73,7 +73,7 @@ MCILBoost.exe [-v verbose] [-t mode] [-c #clusters] [-n #weakClfs] [-s softmax] 
 
 data_file: set the path for input data.
 
-model_file: set the path for model file.
+model_file: set the path for the model file.
 
 result_file: set the path for result file. If result_file is not specified, result_file = data_file + '.result'
 
@@ -84,11 +84,11 @@ result_file: set the path for result file. If result_file is not specified, resu
 * **TrainModel.m**: train a model, call MCIL-Boost command line.
 * **TestModel.m**: test a model, call MCIL-Boost command line.
 * **CrossValidate**.m: split the data into n-fold, perform n-fold cross-validation, and report performance.
-* **ReadData.m**: read Matlab data from text file.
-* **WriteData.m**: write Matlab data to text file.
-* **ReadResult.m**: read Matlab result data from text file.
-* **MeasureResult.m**: evaluate performance in terms of accuracy and auc (area under curve).
-* **AUC**: compute area under ROC curve given prediction and ground truth labels.
+* **ReadData.m**: read Matlab data from a text file.
+* **WriteData.m**: write Matlab data to a text file.
+* **ReadResult.m**: read Matlab result data from a text file.
+* **MeasureResult.m**: evaluate performance in terms of accuracy and auc (area under the curve).
+* **AUC**: compute the area under ROC curve given prediction and ground truth labels.
 * **demoToy.m**: demo script for toy data.
 * **SetParamsToy.m**: set parameters for demoToy.
 * **demo1.m**: demo script for Fox, Tiger, Elephant experiment.
@@ -110,7 +110,7 @@ MCIL-Boost (c=3):  mean_acc = **0.879**, mean_auc = **0.944**
 
 ## Input Format
 * Note: You can use Matlab function "ReadData.m" and "WriteData.m" to read/write Matlab data from/to the text file.
-* Description: the input format is similar to the format used in LIBSVM and MILL package. The software also supports sparse format.
+* Description: the input format is similar to the format used in LIBSVM and MILL package. The software also supports a sparse format.
 In the first line, you first need to specify the number of all instances, and the number of feature dimensions.
 Each line represents one instance, which has an instance id, bag id, and the label id (&gt;= 1 for positive bags, and 0 for negative bags). Each feature value is represented as a &lt;index&gt;:&lt;value&gt; pair where &lt;index&gt; is the index of the feature (starting from 1)
 * Format:
