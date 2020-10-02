@@ -72,8 +72,13 @@ nNeg = round(numNeg / nFold);
 train_ids = cell(nFold, 1);
 test_ids = cell(nFold, 1);
 for n = 1 : nFold
-    test_pos_id =  posIds((n-1)*nPos+1:min(n*nPos, end));
-    test_neg_id = negIds((n-1)*nNeg+1:min(n*nNeg, end));
+    if (n ~= nFold)
+        test_pos_id =  posIds((n-1)*nPos+1:n*nPos);
+        test_neg_id = negIds((n-1)*nNeg+1:n*nNeg);
+    else
+        test_pos_id =  posIds((n-1)*nPos+1:end);
+        test_neg_id = negIds((n-1)*nNeg+1:end);
+    end
     test_ids{n} = [test_neg_id, test_pos_id];
     train_ids{n} = setdiff(allIds, test_ids{n});
 end
